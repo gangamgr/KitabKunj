@@ -15,7 +15,7 @@ function Layout({children }:props) {
         <div className={`col-span-12 ${location.pathname==='/login' ? "hidden" : ""} sticky top-0 z-50`}>
             <Toolbar/>
         </div>
-        <div className='w-full col-span-12 px-4 py-6 bg-yellow-300'>
+        <div className='w-full col-span-12 px-4 py-6 '>
             {children}
         </div>
         <div className='w-full col-span-12 px-4 py-6'>

@@ -1,6 +1,7 @@
 import React from 'react'
 import {BsSearch} from 'react-icons/bs'
 import {PiHandbag} from 'react-icons/pi'
+import { Link } from 'react-router-dom'
 
 function Toolbar() {
   return (
@@ -10,8 +11,8 @@ function Toolbar() {
 
         <div className=' w-fit flex flex-row gap-10 font-semibold text-md  items-center  '>
         <div className=' text-orange-600'>HOME</div>
-        <div className='hover:text-orange-600'>ABOUT US</div>
-        <div className='hover:text-orange-600'>BLOG</div>
+        <Link to={'/about'} className='hover:text-orange-600'>ABOUT US</Link>
+        <Link to={'/new'} className='hover:text-orange-600'>NEW</Link>
         <div className='hover:text-orange-600'>SHOP</div>
         <div className='hover:text-orange-600'>CONTACTS</div>
         </div>
