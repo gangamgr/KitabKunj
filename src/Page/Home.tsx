@@ -3,8 +3,9 @@ import { useCart } from "../PageComponent/CartContext"; // Ensure the correct pa
 import { BsArrowRightShort } from "react-icons/bs";
 import candle2 from "../Resources/R.jpg";
 import candle1 from "../Resources/candle1.jpg";
-import mmm from "../Resources/q.jpg";
+import mmm from "../Resources/bookself 1.jpg";
 import logo from "../Resources/logo.png";
+import Index from './index'
 
 // Interface for books
 interface Book {
@@ -12,6 +13,12 @@ interface Book {
   price: string;
   imageUrl: string;
 }
+const images=[
+  { bgImg:mmm},
+  // { bgImg:candle1 },
+  // {bgImg:candle2 },
+
+];
 
 // Best Sellers Data
 const bestSellers: Book[] = [
@@ -80,7 +87,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-100">
+    <div className="h-fit w-11/12 mt-12 flex flex-col items-center justify-center py-10 mx-auto">
       {/* Cart Indicator */}
       <div className="fixed top-4 right-4 bg-blue-600 text-white p-2 rounded-lg shadow-md">
         
@@ -88,57 +95,54 @@ const Home: React.FC = () => {
       </div>
 
       {/* Main Banner Section */}
-      <div className="flex flex-col items-center mt-12">
-        <h1 className="text-4xl font-bold text-gray-900">Discover Your Next Favorite Book Here</h1>
-        <p className="text-lg text-gray-600 mt-4">
-          Explore our curated collection of new and popular books to find your next literary adventure.
-        </p>
+      <div className="flex flex-col items-center h-full ">
+     {/* Illustration */}
+    <div className="w-full flex justify-center">
+        {/* <div className="flex justify-center "> */}
+          {/* Bookstore illustration */}
+          <div className=" w-screen max-w-6xl h-96 shadow-md">
+           {/* <img src="mmm"/> */}
+            {images.map((item,i)=>(
+             <div 
+             key={i}
+             className="" >
+               <img className="h-96 w-full object-cover" src={item.bgImg}/>
+                 {/* style={{
+                    background: `url(${item.image})`,
+                  backgroundSize:"cover",
+                 }} */}
+                 
+                
+               </div>
+           ))}
+           </div>
+           </div>
+  
 
-        {/* Search Box */}
-        <div className="mt-8">
-          <input
-            type="text"
-            className="border border-gray-300 rounded-lg px-4 py-2 w-96 text-center"
-            placeholder="Which book are you looking for?"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)} // Handle search input change
-          />
-        </div>
-      </div>
+   {/* bottom Banner Section */}
+   <div className="flex flex-col items-center mt-8">
+     <h1 className="text-4xl font-bold text-gray-900">Discover Your Next Favorite Book Here</h1>
+     <p className="text-lg text-gray-700 mt-4">
+       Explore our curated collection of new and popular books to find your next literary adventure.
+     </p>
 
-      {/* Categories Section */}
-      <div className="mt-16 w-full max-w-6xl">
-        <h2 className="text-3xl font-bold text-center">Categories</h2>
-        <p className="text-center text-gray-600 mb-8">Browse our featured categories</p>
-        <div className="flex justify-center space-x-8">
-          {/* Category 1 */}
-          <div className="w-64 bg-white rounded-lg shadow-md overflow-hidden">
-            <img src={candle1} alt="Manga" className="w-full h-48 object-cover" />
-            <div className="text-center p-4">
-              <h3 className="text-xl font-semibold">Manga</h3>
-            </div>
-          </div>
+     {/* Search Box */}
+     <div className="mt-8">
+       <input
+         type="text"
+         className="border-2 border-orange-600 rounded-lg px-4 py-2 w-96 text-center text-black"
+         placeholder="Which book are you looking for?"
+         value={searchQuery}
+         onChange={(e) => setSearchQuery(e.target.value)} // Handle search input change
+       />
+     </div>
+     </div>
+   </div>
 
-          {/* Category 2 */}
-          <div className="w-64 bg-white rounded-lg shadow-md overflow-hidden">
-            <img src={candle2} alt="Biography" className="w-full h-48 object-cover" />
-            <div className="text-center p-4">
-              <h3 className="text-xl font-semibold">Biography</h3>
-            </div>
-          </div>
-
-          {/* Category 3 */}
-          <div className="w-64 bg-white rounded-lg shadow-md overflow-hidden">
-            <img src={mmm} alt="Fiction" className="w-full h-48 object-cover" />
-            <div className="text-center p-4">
-              <h3 className="text-xl font-semibold">Fiction</h3>
-            </div>
-          </div>
-        </div>
-      </div>
+     
 
       {/* Best Sellers Section */}
-      <div className="mt-16 w-full max-w-6xl">
+      {/* <div className="mt-16 w-full max-w-6xl">
         <h2 className="text-3xl font-bold text-center text-red-600">Best Sellers</h2>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {filteredBestSellers.map((book, index) => (
@@ -156,10 +160,10 @@ const Home: React.FC = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Discover Books Section */}
-      <div className="mt-16 w-full max-w-6xl">
+      {/* <div className="mt-16 w-full max-w-6xl">
         <h2 className="text-3xl font-bold text-center text-red-600">Discover Books</h2>
         <p className="text-center text-gray-600 mb-8">Explore our comprehensive collection of books.</p>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
@@ -178,8 +182,11 @@ const Home: React.FC = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
+      <Index/>
     </div>
+
+    
   );
 };
 

@@ -135,6 +135,7 @@ import { PiHandbag } from 'react-icons/pi';
 import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import { useCart } from '../PageComponent/CartContext'; // Import your CartContext
 import logo from "../Resources/logo.png";
+import LOGO from "../Resources/LOGO.jpg";
 
 function Toolbar() {
   const { cartItems } = useCart(); // Access cart items from the context
@@ -148,11 +149,11 @@ function Toolbar() {
 
   return (
     <div className='h-fit w-fit'>
-      <div className='h-fit w-screen flex flex-row justify-between px-20 py-6 items-center bg-white fixed z-0'>
+      <div className='h-fit w-screen flex flex-row justify-between  px-20  py-4 items-center bg-white fixed z-0'>
         
         {/* Logo */}
         <div className='w-32'>
-          <img src={logo} alt="Logo" className="w-28 h-16" />
+          <img src={LOGO} alt="Logo" className="w-28 h-16 object-contain" />
         </div>
 
         {/* Navigation Links */}

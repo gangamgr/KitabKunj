@@ -78,6 +78,7 @@ import CartPage from "./PageComponent/CartPage"; // Import your CartPage compone
 import { CartProvider } from "./PageComponent/CartContext"; // Import CartContext to manage cart state
 import LoginForm from "./Page/RegistrationandLogin/LoginForm";
 import RegistrationForm from "./Page/RegistrationandLogin/RegistrationForm";
+import PaymentForm from "./PageComponent/PaymentForm";
 
 function App() {
   return (
@@ -93,6 +94,7 @@ function App() {
             <Route path="/shop" element={<Shop />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/register" element={<RegistrationForm />} />
+            <Route path="/PaymentForm" element={<PaymentForm />} />
             <Route path="/cart" element={<CartPage />} /> {/* Cart page route */}
           </Routes>
         </Layout>

@@ -1,11 +1,32 @@
-
-
-
-
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useCart } from "../PageComponent/CartContext"; // Import the useCart hook
+import axios from 'axios';
 
 function Shop() {
+
+  const [contactdata, setContactData] = useState([]);
+  const getContact = () => {
+    try {
+      axios
+        .get("http://localhost:3005/content")
+        .then((res) => {
+          console.log(res);
+          setContactData(res?.data);
+        })
+        .catch(() => {
+            console.log ("error fetching data")
+        //   toast.error("Could not fetch data");
+        });
+    } catch (error) {
+        console.log ("error on fetching")
+        setContactData([]); 
+    //   toast.error("Server error");
+    }
+  };
+  useEffect(() => {
+    getContact();
+  }, []);
+
   interface Book {
     title: string;
     price: string;
@@ -70,14 +91,15 @@ function Shop() {
   };
 
   return (
-    <div className='flex flex-col items-center'>
-      <div className='h-48 w-full mt-24 bg-red-500 flex justify-center items-center'>
+    <div className='flex flex-col items-center w-11/12 mx-auto'>
+      {/* <div className='h-48 w-full mt-24 bg-red-500 flex justify-center items-center'>
         <div className='font-serif text-white font-bold text-4xl'>OUR COLLECTION</div>
-      </div>
+      </div> */}
 
-      <div className="mt-16 w-full max-w-6xl px-4">
+      <div className="mt-32 w-full max-w-6xl px-4">
         <h2 className="text-3xl font-bold text-center text-red-600">Discover Books</h2>
         <p className="text-center text-gray-600 mb-8">Explore our comprehensive collection of books.</p>
+        {/*  */}
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-6">
           {currentBooks.map((book, index) => (
             <div key={index} className="bg-white p-4 rounded-lg shadow-md">

@@ -45,6 +45,7 @@
 import React, { useState } from "react";
 import { useCart } from "../PageComponent/CartContext";
 import { BsX } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const CartPage: React.FC = () => {
   const { cartItems, removeFromCart } = useCart();
@@ -81,22 +82,23 @@ const CartPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-100">
-      <div className="mt-16 w-full max-w-6xl">
-        <h2 className="text-3xl font-bold text-center text-red-600">Your Cart</h2>
+    <div className="h-fit w-11/12 flex flex-col justify-center mx-auto items-center py-32 bg-gray-100">
+      <div className=" w-full max-w-7xl ">
+        <h2 className="text-3xl font-bold text-center mb-16 ">Your Cart</h2>
         {cartItems.length === 0 ? (
           <p className="text-center text-gray-600 mt-8">Your cart is empty.</p>
         ) : (
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="mt-8 grid grid-cols-4  gap-10">
             {cartItems.map((book, index) => (
-              <div key={index} className="p-4 rounded-lg shadow-md relative">
+              <div key={index} className="p-4 border border-black rounded-lg shadow-md relative">
                 <button
                   onClick={() => handleRemoveFromCart(index)}
-                  className="absolute -top-1 -right-1 text-red-600"
+                  className="absolute -top-0 -right-0 text-red-600"
                 >
-                  <BsX className="font-bold text-3xl" />
+                  <BsX className="font-bold text-2xl" />
                 </button>
-                <img src={book.imageUrl} alt={book.title} className="w-full h-48 object-cover mt-1" />
+                <div className="h-64 w-full">
+                <img src={book.imageUrl} alt={book.title} className="w-full h-full object-contain mt-1" /></div>
                 <h3 className="mt-4 text-lg font-semibold text-gray-900">{book.title}</h3>
                 <p className="text-red-500 mt-2">{book.price}</p>
               </div>
@@ -107,13 +109,21 @@ const CartPage: React.FC = () => {
 
       {/* Total Price Section */}
       {cartItems.length > 0 && (
-        <div className="mt-8 text-xl font-semibold text-gray-900">
-          Total Price: {`₹${totalPrice.toFixed(2)}`}
+        <div className="mt-10 text-xl font-semibold text-gray-900">
+          Total Price : {`Rs.${totalPrice.toFixed(2)}`}
         </div>
       )}
 
+      {/*  */}
+      <Link to={'/PaymentForm'}>
+      <div className="  pt-10">
+      <button  className=" border-2 border-black hover:border-orange-500 font-medium py-2 px-64 rounded-full hover:bg-orange-500 hover:text-white  flex items-center justify-center">
+                <span className="text-xl">  CHECKOUT</span></button>
+                </div>
+                </Link>
+
       {/* Payment Form */}
-      {cartItems.length > 0 && !paymentSuccess && (
+      {/* {cartItems.length > 0 && !paymentSuccess && (
         <form className="mt-8 w-full max-w-md" onSubmit={handlePaymentSubmit}>
           <h2 className="text-2xl font-bold text-center">Payment Details</h2>
           <div className="mt-4">
@@ -175,7 +185,7 @@ const CartPage: React.FC = () => {
         <div className="mt-8 text-center text-green-600">
           Payment Successful! Thank you for your purchase.
         </div>
-      )}
+      )} */}
     </div>
   );
 };

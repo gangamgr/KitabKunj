@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 const AboutUs: React.FC = () => {
   return (
     <>
-      <div className="container mx-auto p-8 ">
+      <div className="container mx-auto p-8 w-11/12 ">
         {/* 1st Section: About Us Text */}
         <h1 className="  text-xl sm:text-2xl md:text-2xl font-bold my-20 text-center pt-4 pb-4 bg-red-500 h-28">
           About us
@@ -194,23 +194,20 @@ Find fantastic bargains through our promotions, and enjoy our frequent giveaways
         {/* Thank You Message */}
         <div className=" w-full text-center mt-12   pt-6 pb-6 bg-blue-100 ">
   <p className="text-xl font-bold ">
-    To our wonderful supporters and customers; Thank you for making every chapter of our journey possible.
+    To our wonderful supporters and customers,Thank you for making every chapter of our journey possible.
   </p>
-  <h1 className="font-bold text-4xl text-blue-400">Book Kunj</h1>
+  {/* <h1 className="font-bold text-4xl text-blue-400">Book Kunj</h1> */}
 </div>
 <div className="w-full text-center mt-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
       Contact Us
           </h2>
-          <p className='text-2xl font-bold'>     If you want to know something about us you can contact us by clicking the button below. </p>
+          <p className='text-2xl font-bold'>If you want to know something about us you can contact us by clicking the button below. </p>
           <Link to={'/contact'} className='text-orange-600'>
-          <button className="mt-6 px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-700">
+          <button className="mt-6 px-6 py-2 bg-blue-500 text-white font-semibold rounded-full hover:bg-blue-700">
     Contact us
   </button>
             </Link>
-
-        
-         
         </div>
       
       </div>
